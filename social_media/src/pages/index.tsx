@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import Post from '../components/Post'
+import Head from "next/head";
+import Nav from "@/components/Nav";
+import Posts from "@/components/Posts";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -10,7 +11,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Post></Post>
-      </>
-  )
-}
+      <div>
+        <Nav></Nav>
+        <Posts></Posts>
+      </div>
+    </>
+  );
+};
+
+export default Home;

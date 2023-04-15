@@ -1,3 +1,7 @@
+## TODO
+
+- Make nav bar sticky using position prop for AppBar component versus current implementation that overlays nav bar over an empty nav bar with extra padding to prevent covering page content
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
