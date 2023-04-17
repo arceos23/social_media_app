@@ -33,7 +33,7 @@ const Post: FC<PostProps> = ({ author, pid, avatar, title, src, body, hearts, co
       </CardContent>
       <CardActions>
         <FavoritesCount {...{ hearts }}></FavoritesCount>
-        <Link href="/1">
+        <Link href={`/${pid}`}>
           <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
         </Link>
       </CardActions>
