@@ -4,8 +4,8 @@ import data from "@/mock/data.json";
 
 const Posts = () => {
   let posts = [];
-  for (let i = 0; i < data.length; i++) {
-    posts.push(<Post {...data[i]} key={data[i]["uid"]}></Post>);
+  for (let post of data) {
+    posts.push(<Post {...post} key={post["uid"]}></Post>);
   }
   return <Container>{posts}</Container>;
 };

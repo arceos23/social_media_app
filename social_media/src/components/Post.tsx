@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Link from "next/link";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -20,7 +21,7 @@ type PostProps = {
   comments: number;
 };
 
-const Post: React.FunctionComponent<PostProps> = ({ author, uid, avatar, title, src, body, hearts, comments }) => {
+const Post: FC<PostProps> = ({ author, uid, avatar, title, src, body, hearts, comments }) => {
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader avatar={<Avatar>{avatar}</Avatar>} title={author} subheader={title}></CardHeader>
