@@ -1,13 +1,12 @@
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
-import Avatar from "@mui/material/Avatar";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
+import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import AddCommentIcon from "@mui/icons-material/AddComment";
+import FavoritesCount from "@/components/FavoritesCount";
+import CommentsCount from "@/components/CommentsCount";
 
 const Post = () => {
   return (
@@ -27,13 +26,9 @@ const Post = () => {
           laborum!
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="favorite">
-          <FavoriteIcon></FavoriteIcon>
-        </IconButton>
-        <IconButton aria-label="add comment">
-          <AddCommentIcon></AddCommentIcon>
-        </IconButton>
+      <CardActions>
+        <FavoritesCount></FavoritesCount>
+        <CommentsCount></CommentsCount>
       </CardActions>
     </Card>
   );
