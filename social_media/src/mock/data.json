@@ -1,0 +1,32 @@
+[
+  {
+    "author": "user1",
+    "uid": "1",
+    "avatar": "R",
+    "title": "Seeing the flowers",
+    "src": "dylan-taylor-4ynodQ7QiWY-unsplash.jpg",
+    "body": "Lovely hike with lots of wildflowers",
+    "hearts": 10,
+    "comments": 4
+  },
+  {
+    "author": "user2",
+    "uid": "2",
+    "avatar": "S",
+    "title": "Serene pond",
+    "src": "nareeta-martin-bp834284IWk-unsplash.jpg",
+    "body": "Lovely hike with lots of wildflowers",
+    "hearts": 2,
+    "comments": 3
+  },
+  {
+    "author": "user3",
+    "uid": "3",
+    "avatar": "K",
+    "title": "Feeling up",
+    "src": "",
+    "body": "Had a wonderful day hanging out with family! Thanks to everyone who came!",
+    "hearts": 26,
+    "comments": 30
+  }
+]
