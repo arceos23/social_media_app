@@ -8,12 +8,11 @@ type CommentsCountProps = {
 
 const CommentsCount: FC<CommentsCountProps> = ({ numComments }) => {
   const [count, setCount] = useState(numComments);
-
   return (
     <Chip
       icon={<CommentIcon className="comment" aria-label="comments" />}
       label={`${count} comments`}
-      onClick={() => setCount(count + 1)}
+      sx={{ cursor: "pointer" }}
     ></Chip>
   );
 };

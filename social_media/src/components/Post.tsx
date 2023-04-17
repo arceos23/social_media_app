@@ -25,17 +25,17 @@ const Post: FC<PostProps> = ({ author, pid, avatar, title, src, body, hearts, co
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader avatar={<Avatar>{avatar}</Avatar>} title={author} subheader={title}></CardHeader>
-      <Link href="/1">
-        <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>
-        <CardContent>
-          <Typography variant="body1" color="text.primary">
-            {body}
-          </Typography>
-        </CardContent>
-      </Link>
+      <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+          {body}
+        </Typography>
+      </CardContent>
       <CardActions>
         <FavoritesCount {...{ hearts }}></FavoritesCount>
-        <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+        <Link href="/1">
+          <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+        </Link>
       </CardActions>
     </Card>
   );
