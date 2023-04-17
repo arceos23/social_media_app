@@ -1,32 +1,38 @@
 [
   {
     "author": "user1",
-    "uid": "1",
+    "pid": "1",
     "avatar": "R",
     "title": "Seeing the flowers",
     "src": "dylan-taylor-4ynodQ7QiWY-unsplash.jpg",
     "body": "Lovely hike with lots of wildflowers",
     "hearts": 10,
-    "comments": 4
+    "comments": [
+      { "author": "user2", "cid": "1", "avatar": "R", "body": "beautiful flowers" },
+      { "author": "user3", "cid": "2", "avatar": "K", "body": "nice!" }
+    ]
   },
   {
     "author": "user2",
-    "uid": "2",
+    "pid": "2",
     "avatar": "S",
     "title": "Serene pond",
     "src": "nareeta-martin-bp834284IWk-unsplash.jpg",
     "body": "Relaxed by a beautiful pond today",
     "hearts": 2,
-    "comments": 3
+    "comments": [
+      { "author": "user1", "cid": "1", "avatar": "R", "body": "beautiful pond" },
+      { "author": "user3", "cid": "2", "avatar": "K", "body": "nice!" }
+    ]
   },
   {
     "author": "user3",
-    "uid": "3",
+    "pid": "3",
     "avatar": "K",
     "title": "Feeling up",
     "src": "",
     "body": "Had a wonderful day hanging out with family! Thanks to everyone who came!",
     "hearts": 26,
-    "comments": 30
+    "comments": [{ "author": "user2", "cid": "1", "avatar": "R", "body": "family time is great!" }]
   }
 ]

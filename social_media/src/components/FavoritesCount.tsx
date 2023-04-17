@@ -1,10 +1,14 @@
+import { FC, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Chip from "@mui/material/Chip";
-import { useState } from "react";
 
-const FavoritesCount = () => {
+type FavoritesCountProps = {
+  hearts: number;
+};
+
+const FavoritesCount: FC<FavoritesCountProps> = ({ hearts }) => {
   console.log();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(hearts);
 
   return (
     <Chip

@@ -1,9 +1,13 @@
+import { FC, useState } from "react";
 import CommentIcon from "@mui/icons-material/Comment";
 import Chip from "@mui/material/Chip";
-import { useState } from "react";
 
-const CommentsCount = () => {
-  const [count, setCount] = useState(0);
+type CommentsCountProps = {
+  numComments: number;
+};
+
+const CommentsCount: FC<CommentsCountProps> = ({ numComments }) => {
+  const [count, setCount] = useState(numComments);
 
   return (
     <Chip

@@ -12,16 +12,16 @@ import CommentsCount from "@/components/CommentsCount";
 
 type PostProps = {
   author: string;
-  uid: string;
+  pid: string;
   avatar: string;
   title: string;
   src: string;
   body: string;
   hearts: number;
-  comments: number;
+  comments: Array<object>;
 };
 
-const Post: FC<PostProps> = ({ author, uid, avatar, title, src, body, hearts, comments }) => {
+const Post: FC<PostProps> = ({ author, pid, avatar, title, src, body, hearts, comments }) => {
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader avatar={<Avatar>{avatar}</Avatar>} title={author} subheader={title}></CardHeader>
@@ -34,8 +34,8 @@ const Post: FC<PostProps> = ({ author, uid, avatar, title, src, body, hearts, co
         </CardContent>
       </Link>
       <CardActions>
-        <FavoritesCount></FavoritesCount>
-        <CommentsCount></CommentsCount>
+        <FavoritesCount {...{ hearts }}></FavoritesCount>
+        <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
       </CardActions>
     </Card>
   );
