@@ -1,5 +1,5 @@
 import { auth, googleAuthProvider } from "../lib/firebase";
-import { signInWithPopup, GoogleAuthProvider, OAuthCredential } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
@@ -23,9 +23,9 @@ const signInWithGoogle = async () => {
   googleAuthProvider.addScope("profile");
   googleAuthProvider.addScope("email");
   const result = await signInWithPopup(auth, googleAuthProvider);
-  const user = result.user;
-  const credential = GoogleAuthProvider.credentialFromResult(result);
-  const token = credential!.accessToken;
+  //   const user = result.user;
+  //   const credential = GoogleAuthProvider.credentialFromResult(result);
+  //   const token = credential!.accessToken;
 };
 
 export default SignUpPage;

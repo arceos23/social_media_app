@@ -12,11 +12,16 @@ const Nav = () => {
     <>
       <AppBar>
         <Toolbar>
-          <Typography variant="h6" component="a" href="/">
+          <Typography variant="h6" component="a" href="/" sx={{ flexGrow: 1 }}>
             Social media
           </Typography>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}></Typography>
-          {username && (
+          <Typography variant="h6" component="a" href="/" sx={{ mr: 6 }}>
+            Posts
+          </Typography>
+          <Typography variant="h6" component="a" href="/create-post" sx={{ mr: 6 }}>
+            Make post
+          </Typography>
+          {username ? (
             <>
               <Typography variant="h6" sx={{ mr: 2, alignContent: "right" }}>
                 {username}
@@ -30,6 +35,10 @@ const Nav = () => {
                 Log out
               </Button>
             </>
+          ) : (
+            <Typography variant="h6" component="a" href="/sign-up">
+              Sign in
+            </Typography>
           )}
         </Toolbar>
       </AppBar>
