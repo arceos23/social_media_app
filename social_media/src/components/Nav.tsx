@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { UserContext } from "@/lib/userContext";
+import { auth } from "../lib/firebase";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { auth } from "../lib/firebase";
 
 const Nav = () => {
   const { username } = useContext(UserContext);
@@ -12,12 +12,13 @@ const Nav = () => {
     <>
       <AppBar>
         <Toolbar>
-          <Typography variant="h6" component="a" href="/" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="a" href="/">
             Social media
           </Typography>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}></Typography>
           {username && (
             <>
-              <Typography variant="h6" sx={{ mr: 2 }}>
+              <Typography variant="h6" sx={{ mr: 2, alignContent: "right" }}>
                 {username}
               </Typography>
               <Button

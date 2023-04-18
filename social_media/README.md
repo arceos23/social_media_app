@@ -7,6 +7,7 @@
 - Add try catch where appropriate to handle errors - looking to get basic functionality implemented first
 - Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
 - Double check for other solutions in sign-up page to prevent use of "!" to assert that the credential cannot be null
+- Consider updating nav bar to have only two elements split apart. The current implementation has three components - the middle one being saved for future tabs. MUI Stack might be a good solution if change is wanted.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
