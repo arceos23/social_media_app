@@ -5,6 +5,8 @@
 - Consider if state of CommentsCount can be maintained without useState since this would not change as of now - no need for the function to update state. Will revisit since once a database is used, we may pull from the database if the current user adds a comment while the current implementation is for UI visualization purposes.
 - Conditionally render image if image in post
 - Add try catch where appropriate to handle errors - looking to get basic functionality implemented first
+- Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
+- Double check for other solutions in sign-up page to prevent use of "!" to assert that the credential cannot be null
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
