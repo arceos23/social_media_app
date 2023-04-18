@@ -9,7 +9,6 @@ import data from "@/mock/data.json";
 const PostPage = () => {
   const router = useRouter();
   const { postid } = router.query;
-  // let postComments = data.filter((post) => post["pid"] === postid)[0]["comments"];
   let post = data.filter((post) => post["pid"] === postid)[0];
   let postComments = post["comments"];
   return (
