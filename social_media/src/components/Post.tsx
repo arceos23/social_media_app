@@ -40,7 +40,7 @@ const Post: FC<PostProps> = ({ displayName, pid, avatar, title, timestamp, src, 
           new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds)).toDate().toLocaleDateString()
         }
       ></CardHeader>
-      <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>
+      {src && <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>}
       <CardContent>
         <Typography variant="body1" color="text.primary">
           {body}
