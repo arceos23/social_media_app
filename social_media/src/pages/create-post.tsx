@@ -1,4 +1,6 @@
 import { FormEvent, useState } from "react";
+import { auth, firestore } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import AuthCheck from "@/components/AuthCheck";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
@@ -8,11 +10,19 @@ import Stack from "@mui/material/Stack";
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState<string>("");
-  const [comment, setComment] = useState<string>("");
+  const [body, setBody] = useState<string>("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(title, comment);
+    const docRef = await addDoc(collection(firestore, "posts"), {
+      uid: auth.currentUser!.uid,
+      displayName: auth.currentUser!.displayName,
+      title: title,
+      body: body,
+      comments: [],
+      timestamp: serverTimestamp(),
+      numHearts: 0,
+    });
   };
 
   return (
@@ -44,7 +54,7 @@ const CreatePostPage = () => {
             label="Comment"
             autoFocus
             sx={{ background: "white", mb: 2 }}
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e) => setBody(e.target.value)}
           ></TextField>
           <Button type="submit" variant="contained" sx={{ mb: 2 }}>
             Submit
