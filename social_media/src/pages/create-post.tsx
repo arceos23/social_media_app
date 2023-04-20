@@ -1,43 +1,55 @@
+import { FormEvent, useState } from "react";
 import AuthCheck from "@/components/AuthCheck";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import Card from "@mui/material/Card";
 
 const CreatePostPage = () => {
+  const [title, setTitle] = useState<string>("");
+  const [comment, setComment] = useState<string>("");
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(title, comment);
+  };
+
   return (
     <AuthCheck>
       <Container sx={{ background: "white" }}>
-        <Stack>
-          <Typography variant="h6" sx={{ color: "#1976d2", mt: 2 }}>
-            Add post
-          </Typography>
-        </Stack>
-        <TextField
-          autoComplete="title"
-          name="title"
-          required
-          fullWidth
-          id="title"
-          label="Title"
-          autoFocus
-          sx={{ background: "white", mt: 2, mb: 2 }}
-        ></TextField>
-        <TextField
-          autoComplete="comment"
-          name="comment"
-          required
-          fullWidth
-          id="comment"
-          label="Comment"
-          autoFocus
-          sx={{ background: "white", mb: 2 }}
-        ></TextField>
-        <Button type="submit" variant="contained" sx={{ mb: 2 }}>
-          Submit
-        </Button>
+        <form onSubmit={handleSubmit}>
+          <Stack>
+            <Typography variant="h6" sx={{ color: "#1976d2", mt: 2 }}>
+              Add post
+            </Typography>
+          </Stack>
+          <TextField
+            autoComplete="title"
+            name="title"
+            required
+            fullWidth
+            id="title"
+            label="Title"
+            autoFocus
+            sx={{ background: "white", mt: 2, mb: 2 }}
+            onChange={(e) => setTitle(e.target.value)}
+          ></TextField>
+          <TextField
+            autoComplete="comment"
+            name="comment"
+            required
+            fullWidth
+            id="comment"
+            label="Comment"
+            autoFocus
+            sx={{ background: "white", mb: 2 }}
+            onChange={(e) => setComment(e.target.value)}
+          ></TextField>
+          <Button type="submit" variant="contained" sx={{ mb: 2 }}>
+            Submit
+          </Button>
+        </form>
       </Container>
     </AuthCheck>
   );
