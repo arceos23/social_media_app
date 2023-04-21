@@ -3,7 +3,7 @@ import Posts from "@/components/Posts";
 import { firestore } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-const Home = (posts: any) => {
+const HomePage = (posts: any) => {
   return (
     <>
       <Head>
@@ -23,8 +23,7 @@ export async function getServerSideProps() {
   querySnapshot.forEach((doc) => {
     posts.push(doc.data());
   });
-  console.log("getServerSideProps", posts);
   return { props: { posts: JSON.parse(JSON.stringify(posts)) } };
 }
 
-export default Home;
+export default HomePage;

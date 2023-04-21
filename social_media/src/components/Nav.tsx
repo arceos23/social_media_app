@@ -18,6 +18,9 @@ const Nav = () => {
           <Typography variant="h6" component="a" href="/" sx={{ mr: 6 }}>
             Posts
           </Typography>
+          <Typography variant="h6" component="a" href="/my-posts" sx={{ mr: 6 }}>
+            My posts
+          </Typography>
           <Typography variant="h6" component="a" href="/create-post" sx={{ mr: 6 }}>
             Make post
           </Typography>

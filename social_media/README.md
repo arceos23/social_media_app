@@ -1,5 +1,6 @@
 ## TODO
 
+- Clean up use of any as type for server side rendering
 - See if less verbose solution to passing props from Comments component to Comment components
 - Make nav bar sticky using position prop for AppBar component versus current implementation that overlays nav bar over an empty nav bar with extra padding to prevent covering page content
 - Consider if state of CommentsCount can be maintained without useState since this would not change as of now - no need for the function to update state. Will revisit since once a database is used, we may pull from the database if the current user adds a comment while the current implementation is for UI visualization purposes.
