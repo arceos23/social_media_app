@@ -21,7 +21,8 @@ export async function getServerSideProps() {
   const querySnapshot = await getDocs(collection(firestore, "posts"));
   let posts: any = [];
   querySnapshot.forEach((doc) => {
-    posts.push(doc.data());
+    let dataAndId = { ...doc.data(), ...{ id: doc.id } };
+    posts.push(dataAndId);
   });
   return { props: { posts: JSON.parse(JSON.stringify(posts)) } };
 }

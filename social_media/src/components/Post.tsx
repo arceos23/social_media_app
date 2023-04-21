@@ -18,7 +18,7 @@ type timestampType = {
 
 type PostProps = {
   displayName: string;
-  pid: string;
+  docId: string;
   avatar: string;
   title: string;
   src: string;
@@ -28,7 +28,7 @@ type PostProps = {
   comments: Array<object>;
 };
 
-const Post: FC<PostProps> = ({ displayName, pid, avatar, title, timestamp, src, body, hearts, comments }) => {
+const Post: FC<PostProps> = ({ displayName, docId, avatar, title, timestamp, src, body, hearts, comments }) => {
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
@@ -48,7 +48,7 @@ const Post: FC<PostProps> = ({ displayName, pid, avatar, title, timestamp, src, 
       </CardContent>
       <CardActions>
         <FavoritesCount {...{ hearts }}></FavoritesCount>
-        <Link href={`/${pid}`}>
+        <Link href={`/${docId}`}>
           <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
         </Link>
       </CardActions>
