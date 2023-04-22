@@ -1,5 +1,7 @@
 ## TODO
 
+- Have comments page upload a comment if added by authenticated user
+- Have individual post page load correctly when refreshing the page
 - Clean up use of any as type for server side rendering
 - See if less verbose solution to passing props from Comments component to Comment components
 - Make nav bar sticky using position prop for AppBar component versus current implementation that overlays nav bar over an empty nav bar with extra padding to prevent covering page content
