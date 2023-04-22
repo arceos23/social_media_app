@@ -20,7 +20,6 @@ type CommentProps = {
 };
 
 const Comment: FC<CommentProps> = ({ displayName: author, uid: cid, avatar, body, timestamp }) => {
-  console.log(timestamp);
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader

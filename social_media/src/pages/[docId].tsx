@@ -8,6 +8,7 @@ import AddComment from "@/components/AddComment";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore, auth } from "@/lib/firebase";
 import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
 
 const PostPage = () => {
   const [post, setPost] = useState<any>(null);
@@ -30,6 +31,11 @@ const PostPage = () => {
   let postComments = post.comments;
   return (
     <Container>
+      <Link href="/">
+        <Typography component="button" variant="body1" color="text.white" sx={{ mt: 2, mb: 2 }}>
+          Back to posts
+        </Typography>
+      </Link>
       <Post
         displayName={""}
         docId={""}
@@ -47,12 +53,15 @@ const PostPage = () => {
         // {...{ post }}
       ></Post>
       <Comments {...{ postComments }}></Comments>
-      <AddComment {...{ doc: docRef }}></AddComment>
-      <Link href="/">
-        <Typography variant="body1" color="text.white" sx={{ mt: 2 }}>
-          Back to posts
-        </Typography>
-      </Link>
+      {auth.currentUser?.uid ? (
+        <AddComment {...{ doc: docRef }}></AddComment>
+      ) : (
+        <Link href="/sign-up">
+          <Typography component="button" variant="body1" color="text.white" sx={{ mt: 2 }}>
+            Sign in to comment
+          </Typography>
+        </Link>
+      )}
     </Container>
   );
 };
