@@ -1,5 +1,6 @@
 ## TODO
 
+- Have comments button not be hoverable when looking at comments for an individual post
 - Have comments page upload a comment if added by authenticated user
 - Have individual post page load correctly when refreshing the page
 - Clean up use of any as type for server side rendering
