@@ -1,5 +1,6 @@
 ## TODO
 
+- Redirect to feed after user logs in
 - Have timestamps include time - just showing the date
 - Have comments button not be hoverable when looking at comments for an individual post
 - Have comments page upload a comment if added by authenticated user
