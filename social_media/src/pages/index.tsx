@@ -2,7 +2,6 @@ import Head from "next/head";
 import Posts from "@/components/Posts";
 import { firestore } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { FC } from "react";
 
 interface Posts {
   posts: Array<object>;

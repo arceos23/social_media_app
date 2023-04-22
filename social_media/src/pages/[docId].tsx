@@ -8,7 +8,6 @@ import AddComment from "@/components/AddComment";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore, auth } from "@/lib/firebase";
 import { useEffect, useState } from "react";
-import { Button } from "@mui/material";
 
 const PostPage = () => {
   const [post, setPost] = useState<any>(null);
