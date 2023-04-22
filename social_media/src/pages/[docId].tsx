@@ -9,7 +9,7 @@ import { firestore, auth } from "@/lib/firebase";
 import { useEffect, useState } from "react";
 
 const PostPage = () => {
-  const [post, setPost] = useState<DocumentData | undefined | null>(null);
+  const [post, setPost] = useState<any>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -17,12 +17,14 @@ const PostPage = () => {
     const getPost = async () => {
       const docRef = doc(firestore, "posts", docId as string);
       const docSnap = await getDoc(docRef);
-      let data = docSnap.data();
+      let data: any = docSnap.data();
       setPost(data);
     };
-    setPost(getPost());
+    getPost();
   }, []);
 
+  if (!post) return <p>Loading...</p>;
+  let postComments = post.comments;
   return (
     <Container>
       <Post
@@ -39,8 +41,9 @@ const PostPage = () => {
         }}
         comments={[]}
         {...post}
+        // {...{ post }}
       ></Post>
-      {/* <Comments {...{ post }}></Comments> */}
+      <Comments {...{ postComments }}></Comments>
       <Link href="/">
         <Typography variant="body1" color="text.white">
           Back to posts
