@@ -29,13 +29,29 @@ const AddComment: FC<DocProps> = ({ doc }) => {
 
   if (!showAddComment) {
     return (
-      <Button type="submit" variant="contained" sx={{ textTransform: "none" }} onClick={() => setShowAddComment(true)}>
+      <Button
+        type="submit"
+        variant="contained"
+        sx={{ textTransform: "none", mb: 2 }}
+        onClick={() => setShowAddComment(true)}
+      >
         Add comment
       </Button>
     );
   }
   return (
     <Container sx={{ background: "white", mb: 2 }}>
+      <Button
+        type="submit"
+        variant="contained"
+        color="error"
+        sx={{ textTransform: "none", mt: 2 }}
+        onClick={() => {
+          setShowAddComment(false);
+        }}
+      >
+        Close
+      </Button>
       <form onSubmit={handleSubmit}>
         <Stack>
           <Typography variant="h6" sx={{ color: "#1976d2", mt: 2 }}>
