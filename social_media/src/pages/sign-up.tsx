@@ -4,7 +4,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
 
 const SignUpPage = () => {
   console.log(auth.currentUser?.uid);
