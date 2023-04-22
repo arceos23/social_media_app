@@ -9,17 +9,14 @@ import { firestore, auth } from "@/lib/firebase";
 import { useEffect, useState } from "react";
 
 const PostPage = () => {
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState<Promise<void> | null>(null);
   const router = useRouter();
 
   useEffect(() => {
     const { docId } = router.query;
-    console.log(docId);
     const getPost = async () => {
       const docRef = doc(firestore, "posts", docId as string);
-      console.log("docRef", docRef);
       const docSnap = await getDoc(docRef);
-      console.log("docSnap", docSnap);
     };
     setPost(getPost());
   }, []);
@@ -33,7 +30,7 @@ const PostPage = () => {
         title={""}
         src={""}
         body={""}
-        hearts={0}
+        numHearts={0}
         timestamp={{
           seconds: 0,
           nanoseconds: 0,

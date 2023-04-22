@@ -2,8 +2,13 @@ import Head from "next/head";
 import Posts from "@/components/Posts";
 import { firestore } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { FC } from "react";
 
-const HomePage = (posts: any) => {
+interface Posts {
+  posts: Array<object>;
+}
+
+const HomePage = ({ posts }: Posts) => {
   return (
     <>
       <Head>
