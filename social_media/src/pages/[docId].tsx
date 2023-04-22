@@ -56,7 +56,7 @@ const PostPage = () => {
         <AddComment {...{ doc: docRef }}></AddComment>
       ) : (
         <Link href="/sign-up">
-          <Typography component="button" variant="body1" color="text.white" sx={{ mt: 2 }}>
+          <Typography component="button" variant="body1" color="text.white" sx={{ mb: 2 }}>
             Sign in to comment
           </Typography>
         </Link>
