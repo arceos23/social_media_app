@@ -22,7 +22,7 @@ const MyPostsPage = () => {
     }
   }, [auth.currentUser?.uid]);
 
-  if (posts == null) return <p>Loading...</p>;
+  if (posts === null) return <p>Loading...</p>;
   return (
     <AuthCheck>
       <Posts {...{ posts }}></Posts>
