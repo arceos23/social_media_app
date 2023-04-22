@@ -26,9 +26,21 @@ type PostProps = {
   numHearts: number;
   timestamp: timestampType;
   comments: Array<object>;
+  link: boolean;
 };
 
-const Post: FC<PostProps> = ({ displayName, docId, avatar, title, timestamp, src, body, numHearts, comments }) => {
+const Post: FC<PostProps> = ({
+  displayName,
+  docId,
+  avatar,
+  title,
+  timestamp,
+  src,
+  body,
+  numHearts,
+  comments,
+  link,
+}) => {
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
@@ -48,9 +60,13 @@ const Post: FC<PostProps> = ({ displayName, docId, avatar, title, timestamp, src
       </CardContent>
       <CardActions>
         <FavoritesCount {...{ numHearts }}></FavoritesCount>
-        <Link href={`/${docId}`}>
+        {link ? (
+          <Link href={`/${docId}`}>
+            <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+          </Link>
+        ) : (
           <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
-        </Link>
+        )}
       </CardActions>
     </Card>
   );

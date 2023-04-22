@@ -9,8 +9,12 @@ type CommentsProps = {
 const Comments: FC<CommentsProps> = ({ postComments }) => {
   let comments = postComments.map((comment) => (
     <Comment
-      author={""}
-      cid={""}
+      timestamp={{
+        seconds: 0,
+        nanoseconds: 0,
+      }}
+      displayName={""}
+      uid={""}
       avatar={""}
       body={""}
       {...comment}
