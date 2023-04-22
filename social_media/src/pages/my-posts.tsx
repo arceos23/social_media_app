@@ -1,35 +1,32 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { firestore, auth } from "@/lib/firebase";
 import Posts from "@/components/Posts";
 import AuthCheck from "@/components/AuthCheck";
-import { UserContext } from "@/lib/userContext";
 
 const MyPostsPage = () => {
-  const [myPosts, setMyPosts] = useState(null);
-  const [isLoading, setLoading] = useState(false);
-  const { username, uid } = useContext(UserContext);
+  const [posts, setPosts] = useState(null);
 
   useEffect(() => {
     const getPosts = async () => {
-      const q = query(collection(firestore, "posts"), where("uid", "==", uid));
-      //   const q = query(collection(firestore, "posts"), where("uid", "==", auth.currentUser?.uid));
-      let posts: any = [];
+      const q = query(collection(firestore, "posts"), where("uid", "==", auth.currentUser?.uid));
+      let fetchedPosts: any = [];
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        posts.push(doc.data());
+        fetchedPosts.push(doc.data());
       });
-      return posts;
+      setPosts(fetchedPosts);
     };
-    setLoading(true);
-    setMyPosts(getPosts());
-    setLoading(false);
-  }, [uid, auth.currentUser?.uid]);
+    if (auth.currentUser?.uid) {
+      getPosts();
+    }
+  }, [auth.currentUser?.uid]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (posts == null) return <p>Loading...</p>;
+  console.log(typeof posts);
   return (
     <AuthCheck>
-      <Posts {...{ myPosts }}></Posts>
+      <Posts {...{ posts }}></Posts>
     </AuthCheck>
   );
 };

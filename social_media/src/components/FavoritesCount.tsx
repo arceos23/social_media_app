@@ -3,12 +3,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import Chip from "@mui/material/Chip";
 
 type FavoritesCountProps = {
-  hearts: number;
+  numHearts: number;
 };
 
-const FavoritesCount: FC<FavoritesCountProps> = ({ hearts }) => {
-  console.log();
-  const [count, setCount] = useState(hearts);
+const FavoritesCount: FC<FavoritesCountProps> = ({ numHearts }) => {
+  const [count, setCount] = useState(numHearts);
 
   return (
     <Chip
