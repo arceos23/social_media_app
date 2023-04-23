@@ -1,6 +1,7 @@
 ## TODO
 
 - Finish CRUD functionality
+- Review code and consider refactoring any repeated MUI component patterns into custom components
 - Have timestamps include time - just showing the date
 - Have comments button not be hoverable when looking at comments for an individual post - consider link in post component vs hover in comments count component
 - Clean up typescript types

@@ -11,7 +11,7 @@ const FavoritesCount: FC<FavoritesCountProps> = ({ numHearts }) => {
 
   return (
     <Chip
-      icon={<FavoriteIcon className="favorite" color="error" aria-label="favorites" />}
+      icon={<FavoriteIcon color="error" aria-label="favorites" />}
       label={count}
       onClick={() => setCount(count + 1)}
     ></Chip>

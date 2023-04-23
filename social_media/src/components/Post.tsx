@@ -7,8 +7,10 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import FavoritesCount from "@/components/FavoritesCount";
 import CommentsCount from "@/components/CommentsCount";
+import DeleteContent from "@/components/DeleteContent";
 import { Timestamp } from "firebase/firestore";
 
 type timestampType = {
@@ -59,14 +61,17 @@ const Post: FC<PostProps> = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <FavoritesCount {...{ numHearts }}></FavoritesCount>
-        {link ? (
-          <Link href={`/${docId}`}>
+        <Box sx={{ display: "flex", gap: 0.5 }}>
+          <FavoritesCount {...{ numHearts }}></FavoritesCount>
+          {link ? (
+            <Link href={`/${docId}`}>
+              <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+            </Link>
+          ) : (
             <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
-          </Link>
-        ) : (
-          <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
-        )}
+          )}
+          <DeleteContent {...{ docId }}></DeleteContent>
+        </Box>
       </CardActions>
     </Card>
   );

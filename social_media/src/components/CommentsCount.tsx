@@ -9,7 +9,7 @@ type CommentsCountProps = {
 const CommentsCount: FC<CommentsCountProps> = ({ numComments }) => {
   return (
     <Chip
-      icon={<CommentIcon className="comment" aria-label="comments" />}
+      icon={<CommentIcon aria-label="comments" />}
       label={`${numComments} comments`}
       sx={{ cursor: "pointer" }}
     ></Chip>
