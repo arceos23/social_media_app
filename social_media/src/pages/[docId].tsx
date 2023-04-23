@@ -27,7 +27,14 @@ const PostPage = () => {
     getPost();
   }, [router.isReady]);
 
-  if (!post) return <p>Loading...</p>;
+  if (!post)
+    return (
+      <Container sx={{ background: "gray" }}>
+        <Typography variant="body1" sx={{ p: 2 }}>
+          Loading...
+        </Typography>
+      </Container>
+    );
   let postComments = post.comments;
   return (
     <Container>

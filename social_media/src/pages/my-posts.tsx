@@ -27,7 +27,7 @@ const MyPostsPage = () => {
   if (auth.currentUser?.uid === undefined)
     return (
       <Container sx={{ background: "gray" }}>
-        <Typography variant="body1" sx={{ mt: 2, mb: 2, p: 2 }}>
+        <Typography variant="body1" sx={{ p: 2 }}>
           Sign in to view your posts
         </Typography>
       </Container>
@@ -35,7 +35,7 @@ const MyPostsPage = () => {
   if (posts === null)
     return (
       <Container sx={{ background: "gray" }}>
-        <Typography variant="body1" sx={{ mt: 2, mb: 2, p: 2 }}>
+        <Typography variant="body1" sx={{ p: 2 }}>
           Loading...
         </Typography>
       </Container>
