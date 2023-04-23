@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 const SignUpPage = () => {
   console.log(auth.currentUser?.uid);
@@ -18,20 +19,22 @@ const SignUpPage = () => {
   }
   return (
     <Container>
-      <Button
-        type="submit"
-        variant="contained"
-        sx={{ textTransform: "none", m: 2 }}
-        onClick={signInWithGoogle}
-        disabled={auth.currentUser?.uid !== undefined}
-      >
-        <Avatar
-          src="Google__G__Logo.svg"
-          alt="Google G logo"
-          sx={{ mr: 2, height: "1.25rem", width: "1.25rem" }}
-        ></Avatar>
-        Sign in with Google
-      </Button>
+      <Link href="\">
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ textTransform: "none", m: 2 }}
+          onClick={signInWithGoogle}
+          disabled={auth.currentUser?.uid !== undefined}
+        >
+          <Avatar
+            src="Google__G__Logo.svg"
+            alt="Google G logo"
+            sx={{ mr: 2, height: "1.25rem", width: "1.25rem" }}
+          ></Avatar>
+          Sign in with Google
+        </Button>
+      </Link>
     </Container>
   );
 };
