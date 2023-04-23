@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/router";
 import { auth, firestore } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import AuthCheck from "@/components/AuthCheck";
@@ -9,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
 const CreatePostPage = () => {
+  const router = useRouter();
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
 
@@ -23,6 +25,7 @@ const CreatePostPage = () => {
       timestamp: serverTimestamp(),
       numHearts: 0,
     });
+    router.push("/my-posts");
   };
 
   return (

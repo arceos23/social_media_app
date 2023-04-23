@@ -1,5 +1,6 @@
 ## TODO
 
+- Finish CRUD functionality
 - Have timestamps include time - just showing the date
 - Have comments button not be hoverable when looking at comments for an individual post - consider link in post component vs hover in comments count component
 - Clean up typescript types
