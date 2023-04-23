@@ -15,7 +15,8 @@ const MyPostsPage = () => {
       let fetchedPosts: any = [];
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        fetchedPosts.push(doc.data());
+        let dataAndId = { ...doc.data(), ...{ docId: doc.id } };
+        fetchedPosts.push(dataAndId);
       });
       setPosts(fetchedPosts);
     };
