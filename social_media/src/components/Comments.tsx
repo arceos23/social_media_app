@@ -7,7 +7,7 @@ type CommentsProps = {
 };
 
 const Comments: FC<CommentsProps> = ({ postComments }) => {
-  let comments = postComments.map((comment) => (
+  let comments = postComments.map((comment, index) => (
     <Comment
       timestamp={{
         seconds: 0,
@@ -18,7 +18,7 @@ const Comments: FC<CommentsProps> = ({ postComments }) => {
       avatar={""}
       body={""}
       {...comment}
-      key={comment["cid" as keyof typeof comment]}
+      key={index}
     ></Comment>
   ));
   return <Container sx={{ mt: 2 }}>{comments}</Container>;
