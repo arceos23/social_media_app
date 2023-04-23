@@ -3,6 +3,8 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { firestore, auth } from "@/lib/firebase";
 import Posts from "@/components/Posts";
 import AuthCheck from "@/components/AuthCheck";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 
 const MyPostsPage = () => {
   const [posts, setPosts] = useState(null);
@@ -22,7 +24,23 @@ const MyPostsPage = () => {
     }
   }, [auth.currentUser?.uid]);
 
-  if (posts === null) return <p>Loading...</p>;
+  if (auth.currentUser?.uid === undefined)
+    return (
+      <Container sx={{ background: "gray" }}>
+        <Typography variant="body1" sx={{ mt: 2, mb: 2, p: 2 }}>
+          Sign in to view your posts
+        </Typography>
+      </Container>
+    );
+  if (posts === null)
+    return (
+      <Container sx={{ background: "gray" }}>
+        <Typography variant="body1" sx={{ mt: 2, mb: 2, p: 2 }}>
+          Loading...
+        </Typography>
+      </Container>
+    );
+
   return (
     <AuthCheck>
       <Posts {...{ posts }}></Posts>
