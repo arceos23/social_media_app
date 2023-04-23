@@ -1,19 +1,13 @@
 ## TODO
 
-- Redirect to feed after user logs in
 - Have timestamps include time - just showing the date
-- Have comments button not be hoverable when looking at comments for an individual post
-- Have comments page upload a comment if added by authenticated user
-- Have individual post page load correctly when refreshing the page
-- Clean up use of any as type for server side rendering
+- Have comments button not be hoverable when looking at comments for an individual post - consider link in post component vs hover in comments count component
+- Clean up typescript types
 - See if less verbose solution to passing props from Comments component to Comment components
 - Make nav bar sticky using position prop for AppBar component versus current implementation that overlays nav bar over an empty nav bar with extra padding to prevent covering page content
-- Consider if state of CommentsCount can be maintained without useState since this would not change as of now - no need for the function to update state. Will revisit since once a database is used, we may pull from the database if the current user adds a comment while the current implementation is for UI visualization purposes.
-- Conditionally render image if image in post
 - Add try catch where appropriate to handle errors - looking to get basic functionality implemented first
 - Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
 - Double check for other solutions in sign-up page to prevent use of "!" to assert that the credential cannot be null
-- Consider updating nav bar to have only two elements split apart. The current implementation has three components - the middle one being saved for future tabs. MUI Stack might be a good solution if change is wanted.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
