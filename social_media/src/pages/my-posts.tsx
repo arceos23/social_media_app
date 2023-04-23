@@ -22,7 +22,6 @@ const MyPostsPage = () => {
     }
   }, [auth.currentUser?.uid]);
 
-  console.log("posts", posts);
   if (posts === null) return <p>Loading...</p>;
   return (
     <AuthCheck>

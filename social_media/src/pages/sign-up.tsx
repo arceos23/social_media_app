@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 const SignUpPage = () => {
-  console.log(auth.currentUser?.uid);
   if (auth.currentUser?.uid !== undefined) {
     return (
       <Container sx={{ background: "gray" }}>

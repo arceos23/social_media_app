@@ -15,16 +15,17 @@ const PostPage = () => {
   const router = useRouter();
 
   useEffect(() => {
+    if (!router.isReady) return;
     const { docId } = router.query;
     const getPost = async () => {
       const docReference = doc(firestore, "posts", docId as string);
+      setDocRef(docReference);
       const docSnap = await getDoc(docReference);
       let data: any = docSnap.data();
-      setDocRef(docReference);
       setPost(data);
     };
     getPost();
-  }, []);
+  }, [router.isReady]);
 
   if (!post) return <p>Loading...</p>;
   let postComments = post.comments;
