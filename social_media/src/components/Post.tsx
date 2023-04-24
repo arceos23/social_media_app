@@ -52,7 +52,7 @@ const Post: FC<PostProps> = ({
       <CardHeader
         avatar={<Avatar>{avatar}</Avatar>}
         title={displayName}
-        subheader={date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
+        subheader={title + " - " + date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
       ></CardHeader>
       {src && <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>}
       <CardContent>
@@ -62,7 +62,7 @@ const Post: FC<PostProps> = ({
       </CardContent>
       <CardActions>
         <Box sx={{ display: "flex", gap: 0.5 }}>
-          <FavoritesCount {...{ numHearts }}></FavoritesCount>
+          <FavoritesCount {...{ docId, numHearts }}></FavoritesCount>
           {link ? (
             <Link href={`/${docId}`}>
               <CommentsCount {...{ numComments: comments.length }}></CommentsCount>

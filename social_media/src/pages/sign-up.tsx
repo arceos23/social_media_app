@@ -18,7 +18,7 @@ const SignUpPage = () => {
   }
   return (
     <Container>
-      <Link href="\">
+      <Link href="/">
         <Button
           type="submit"
           variant="contained"
