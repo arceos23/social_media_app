@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useRouter } from "next/router";
 import Chip from "@mui/material/Chip";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { doc, updateDoc, arrayRemove } from "firebase/firestore";
@@ -10,11 +11,14 @@ type DeleteCommentProps = {
 };
 
 const DeleteComment: FC<DeleteCommentProps> = ({ comment, docId }) => {
+  const router = useRouter();
+
   const deleteDBField = async () => {
     const postRef = doc(firestore, "posts", docId);
     await updateDoc(postRef, {
       comments: arrayRemove(comment),
     });
+    router.reload();
   };
 
   return (

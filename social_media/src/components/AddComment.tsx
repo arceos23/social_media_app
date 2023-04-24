@@ -1,5 +1,6 @@
 import { FC, FormEvent, useState } from "react";
-import { updateDoc, arrayUnion, serverTimestamp, Timestamp } from "firebase/firestore";
+import { useRouter } from "next/router";
+import { updateDoc, arrayUnion, Timestamp } from "firebase/firestore";
 import { auth } from "@/lib/firebase";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -14,6 +15,7 @@ type DocProps = {
 const AddComment: FC<DocProps> = ({ doc }) => {
   const [showAddComment, setShowAddComment] = useState(false);
   const [comment, setComment] = useState<string>("");
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,6 +27,9 @@ const AddComment: FC<DocProps> = ({ doc }) => {
         timestamp: Timestamp.now(),
       }),
     });
+    setShowAddComment(false);
+    setComment("");
+    router.reload();
   };
 
   if (!showAddComment) {
