@@ -46,16 +46,13 @@ const Post: FC<PostProps> = ({
   link,
   uid,
 }) => {
+  const date = new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds)).toDate();
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
         avatar={<Avatar>{avatar}</Avatar>}
         title={displayName}
-        subheader={
-          title +
-          " - " +
-          new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds)).toDate().toLocaleDateString()
-        }
+        subheader={date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
       ></CardHeader>
       {src && <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>}
       <CardContent>

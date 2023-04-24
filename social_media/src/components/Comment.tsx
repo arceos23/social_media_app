@@ -26,14 +26,13 @@ type CommentProps = {
 
 const Comment: FC<CommentProps> = ({ displayName, uid, avatar, body, timestamp, docId }) => {
   let comment = { body, displayName, timestamp, uid };
+  const date = new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds)).toDate();
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
         avatar={<Avatar>{avatar}</Avatar>}
         title={displayName}
-        subheader={new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds))
-          .toDate()
-          .toLocaleDateString()}
+        subheader={date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
       ></CardHeader>
       <CardContent>
         <Typography variant="body1" color="text.secondary">

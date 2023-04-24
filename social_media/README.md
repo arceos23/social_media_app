@@ -2,10 +2,7 @@
 
 High priority
 
-- Order posts by date
-- Finish CRUD functionality
 - Implement ability to heart posts and comments - once per signed in user
-- Have timestamps include time - just showing the date
 - Have comments button not be hoverable when looking at comments for an individual post - consider link in post component vs hover in comments count component
 - Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
 - Security rules for Firestore once deploying to Vercel
