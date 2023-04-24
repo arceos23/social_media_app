@@ -1,16 +1,23 @@
 ## TODO
 
+High priority
+
 - Order posts by date
-- Refresh page when post or comment deleted
 - Finish CRUD functionality
-- Review code and consider refactoring any repeated MUI component patterns into custom components
+- Implement ability to heart posts and comments - once per signed in user
 - Have timestamps include time - just showing the date
 - Have comments button not be hoverable when looking at comments for an individual post - consider link in post component vs hover in comments count component
+- Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
+- Security rules for Firestore once deploying to Vercel
+
+Low priority
+
+- Add try catch where appropriate to handle errors - looking to get basic functionality implemented first
+- Consider ways to rerender page after CRUD operation rather than refreshing the page - could use optimistic UI or explore other techniques
+- Review code and consider refactoring any repeated MUI component patterns into custom components
 - Clean up typescript types
 - See if less verbose solution to passing props from Comments component to Comment components
 - Make nav bar sticky using position prop for AppBar component versus current implementation that overlays nav bar over an empty nav bar with extra padding to prevent covering page content
-- Add try catch where appropriate to handle errors - looking to get basic functionality implemented first
-- Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
 - Double check for other solutions in sign-up page to prevent use of "!" to assert that the credential cannot be null
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
