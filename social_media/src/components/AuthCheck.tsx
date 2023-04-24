@@ -12,7 +12,6 @@ const AuthCheck = (props: any) => {
           You must be signed in.
         </Typography>
       </Link>
-      ;
     </Container>
   );
 };
