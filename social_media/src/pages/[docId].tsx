@@ -34,7 +34,7 @@ const PostPage = () => {
         </Typography>
       </Container>
     );
-  let docId = router.query as unknown as string;
+  const { docId } = router.query;
   return (
     <Container>
       <Link href="/">
@@ -58,7 +58,7 @@ const PostPage = () => {
         {...post}
         // {...{ post }}
       ></Post>
-      <Comments postComments={post.comments} docId={docId}></Comments>
+      <Comments postComments={post.comments} docId={docId as unknown as string}></Comments>
       {auth.currentUser?.uid ? (
         <AddComment {...{ doc: docRef }}></AddComment>
       ) : (
