@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { doc, arrayUnion, increment, writeBatch } from "firebase/firestore";
+import { doc, arrayUnion, arrayRemove, increment, writeBatch } from "firebase/firestore";
 import { auth, firestore } from "@/lib/firebase";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Chip from "@mui/material/Chip";
@@ -7,10 +7,11 @@ import Chip from "@mui/material/Chip";
 type HeartProps = {
   docId: any;
   numHearts: number;
+  alreadyHearted: boolean;
 };
 
-const Heart: FC<HeartProps> = ({ docId, numHearts }) => {
-  const [allowHeart, setAllowHeart] = useState<boolean>(false);
+const Heart: FC<HeartProps> = ({ docId, numHearts, alreadyHearted }) => {
+  const [allowHeart, setAllowHeart] = useState<boolean>(alreadyHearted);
   const [heartsCount, setNumHearts] = useState<number>(numHearts);
 
   const heartContent = async () => {
@@ -33,7 +34,7 @@ const Heart: FC<HeartProps> = ({ docId, numHearts }) => {
     const batch = writeBatch(firestore);
     const postRef = doc(firestore, "posts", docId);
     batch.update(postRef, {
-      usersHearted: arrayUnion(uid),
+      usersHearted: arrayRemove(uid),
     });
     batch.update(postRef, {
       numHearts: increment(-1),

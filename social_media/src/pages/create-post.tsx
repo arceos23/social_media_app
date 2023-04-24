@@ -22,6 +22,7 @@ const CreatePostPage = () => {
       title: title,
       body: body,
       comments: [],
+      usersHearted: [],
       timestamp: serverTimestamp(),
       numHearts: 0,
     });

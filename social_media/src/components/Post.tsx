@@ -31,6 +31,7 @@ type PostProps = {
   comments: Array<object>;
   link: boolean;
   uid: string;
+  usersHearted: Array<string | undefined>;
 };
 
 const Post: FC<PostProps> = ({
@@ -45,8 +46,42 @@ const Post: FC<PostProps> = ({
   comments,
   link,
   uid,
+  usersHearted,
 }) => {
   const date = new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds)).toDate();
+  const alreadyHearted = usersHearted.includes(auth.currentUser?.uid) ? true : false;
+  // content for signed out user
+  if (auth.currentUser?.uid === undefined) return <></>;
+  // if (auth.currentUser?.uid === undefined)
+  // return (
+  //   <Card variant="outlined" sx={{ mb: 2 }}>
+  //     <CardHeader
+  //       avatar={<Avatar>{avatar}</Avatar>}
+  //       title={displayName}
+  //       subheader={title + " - " + date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
+  //     ></CardHeader>
+  //     {src && <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>}
+  //     <CardContent>
+  //       <Typography variant="body1" color="text.primary">
+  //         {body}
+  //       </Typography>
+  //     </CardContent>
+  //     <CardActions>
+  //       <Box sx={{ display: "flex", gap: 0.5 }}>
+  //         <Heart {...{ docId, numHearts, alreadyHearted }}></Heart>
+  //         {link ? (
+  //           <Link href={`/${docId}`}>
+  //             <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+  //           </Link>
+  //         ) : (
+  //           <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+  //         )}
+  //         {auth.currentUser?.uid === uid && <DeletePost {...{ docId }}></DeletePost>}
+  //       </Box>
+  //     </CardActions>
+  //   </Card>
+  // );
+  // content for signed in user
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
@@ -62,7 +97,7 @@ const Post: FC<PostProps> = ({
       </CardContent>
       <CardActions>
         <Box sx={{ display: "flex", gap: 0.5 }}>
-          <Heart {...{ docId, numHearts }}></Heart>
+          <Heart {...{ docId, numHearts, alreadyHearted }}></Heart>
           {link ? (
             <Link href={`/${docId}`}>
               <CommentsCount {...{ numComments: comments.length }}></CommentsCount>

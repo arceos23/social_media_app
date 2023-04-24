@@ -3,12 +3,14 @@
 High priority
 
 - Implement ability to heart posts and comments - once per signed in user - and disable button as appropriate
+- Update link in posts as its always set to true
 - Have comments button not be hoverable when looking at comments for an individual post - consider link in post component vs hover in comments count component
 - Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
 - Security rules for Firestore once deploying to Vercel
 
 Low priority
 
+- Consider updating posts to return something besides react fragment component
 - Add try catch where appropriate to handle errors - looking to get basic functionality implemented first
 - Consider ways to rerender page after CRUD operation rather than refreshing the page - could use optimistic UI or explore other techniques
 - Review code and consider refactoring any repeated MUI component patterns into custom components

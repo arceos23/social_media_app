@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useRouter } from "next/router";
 import Chip from "@mui/material/Chip";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { doc, deleteDoc } from "firebase/firestore";
@@ -9,8 +10,11 @@ type DeletePostProps = {
 };
 
 const DeletePost: FC<DeletePostProps> = ({ docId }) => {
+  const router = useRouter();
+
   const deleteDBPost = async () => {
     await deleteDoc(doc(firestore, "posts", docId));
+    router.reload();
   };
 
   return (
