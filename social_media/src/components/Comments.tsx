@@ -4,11 +4,13 @@ import Comment from "@/components/Comment";
 
 type CommentsProps = {
   postComments: Array<object>;
+  docId: string;
 };
 
-const Comments: FC<CommentsProps> = ({ postComments }) => {
+const Comments: FC<CommentsProps> = ({ postComments, docId }) => {
   let comments = postComments.map((comment, index) => (
     <Comment
+      docId={docId}
       timestamp={{
         seconds: 0,
         nanoseconds: 0,

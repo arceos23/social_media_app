@@ -1,5 +1,6 @@
 ## TODO
 
+- Refresh page when post or comment deleted
 - Finish CRUD functionality
 - Review code and consider refactoring any repeated MUI component patterns into custom components
 - Have timestamps include time - just showing the date

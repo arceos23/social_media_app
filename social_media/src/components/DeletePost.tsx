@@ -4,12 +4,12 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { doc, deleteDoc } from "firebase/firestore";
 import { firestore } from "@/lib/firebase";
 
-type DeleteContentProps = {
+type DeletePostProps = {
   docId: string;
 };
 
-const DeleteContent: FC<DeleteContentProps> = ({ docId }) => {
-  const deleteInDB = async () => {
+const DeletePost: FC<DeletePostProps> = ({ docId }) => {
+  const deleteDBPost = async () => {
     await deleteDoc(doc(firestore, "posts", docId));
   };
 
@@ -18,9 +18,9 @@ const DeleteContent: FC<DeleteContentProps> = ({ docId }) => {
       icon={<DeleteForeverIcon aria-label="delete content" />}
       label="Delete"
       sx={{ cursor: "pointer" }}
-      onClick={deleteInDB}
+      onClick={deleteDBPost}
     ></Chip>
   );
 };
 
-export default DeleteContent;
+export default DeletePost;

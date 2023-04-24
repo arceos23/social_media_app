@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import FavoritesCount from "@/components/FavoritesCount";
 import CommentsCount from "@/components/CommentsCount";
-import DeleteContent from "@/components/DeleteContent";
+import DeletePost from "@/components/DeletePost";
 import { Timestamp } from "firebase/firestore";
 
 type timestampType = {
@@ -43,6 +43,7 @@ const Post: FC<PostProps> = ({
   comments,
   link,
 }) => {
+  console.log("Posts docId", docId);
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
@@ -70,7 +71,7 @@ const Post: FC<PostProps> = ({
           ) : (
             <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
           )}
-          <DeleteContent {...{ docId }}></DeleteContent>
+          <DeletePost {...{ docId }}></DeletePost>
         </Box>
       </CardActions>
     </Card>
