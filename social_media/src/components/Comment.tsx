@@ -4,10 +4,11 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import DeleteComment from "@/components/DeleteComment";
-import { Timestamp } from "firebase/firestore";
 import CardActions from "@mui/material/CardActions";
 import Box from "@mui/material/Box";
+import DeleteComment from "@/components/DeleteComment";
+import { Timestamp } from "firebase/firestore";
+import { auth } from "@/lib/firebase";
 
 type timestampType = {
   seconds: number;
@@ -41,7 +42,7 @@ const Comment: FC<CommentProps> = ({ displayName, uid, avatar, body, timestamp, 
       </CardContent>
       <CardActions>
         <Box sx={{ display: "flex", gap: 0.5 }}>
-          <DeleteComment comment={comment} docId={docId}></DeleteComment>
+          {auth.currentUser?.uid === uid && <DeleteComment comment={comment} docId={docId}></DeleteComment>}
         </Box>
       </CardActions>
     </Card>

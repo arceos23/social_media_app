@@ -1,23 +1,18 @@
 import { FC } from "react";
 import Chip from "@mui/material/Chip";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { doc, updateDoc, arrayRemove, FieldValue } from "firebase/firestore";
+import { doc, updateDoc, arrayRemove } from "firebase/firestore";
 import { firestore } from "@/lib/firebase";
 
 type DeleteCommentProps = {
-  // docId: string;
-  // comment: string;
   comment: object;
+  docId: string;
 };
 
-// const DeleteComment: FC<DeleteCommentProps> = ({ docId, comment }) => {
-const DeleteComment: FC<DeleteCommentProps> = ({ comment }) => {
+const DeleteComment: FC<DeleteCommentProps> = ({ comment, docId }) => {
   const deleteDBField = async () => {
-    // console.log(docId, comment);
-    // const postRef = doc(firestore, "posts", docId);
-    const postRef = doc(firestore, "posts", "LQG3c3gjpZnzweRxoYbJ");
+    const postRef = doc(firestore, "posts", docId);
     await updateDoc(postRef, {
-      // comments: arrayRemove(comment),
       comments: arrayRemove(comment),
     });
   };

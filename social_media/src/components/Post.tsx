@@ -12,6 +12,7 @@ import FavoritesCount from "@/components/FavoritesCount";
 import CommentsCount from "@/components/CommentsCount";
 import DeletePost from "@/components/DeletePost";
 import { Timestamp } from "firebase/firestore";
+import { auth } from "@/lib/firebase";
 
 type timestampType = {
   seconds: number;
@@ -29,6 +30,7 @@ type PostProps = {
   timestamp: timestampType;
   comments: Array<object>;
   link: boolean;
+  uid: string;
 };
 
 const Post: FC<PostProps> = ({
@@ -42,8 +44,8 @@ const Post: FC<PostProps> = ({
   numHearts,
   comments,
   link,
+  uid,
 }) => {
-  console.log("Posts docId", docId);
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
@@ -71,7 +73,7 @@ const Post: FC<PostProps> = ({
           ) : (
             <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
           )}
-          <DeletePost {...{ docId }}></DeletePost>
+          {auth.currentUser?.uid === uid && <DeletePost {...{ docId }}></DeletePost>}
         </Box>
       </CardActions>
     </Card>
