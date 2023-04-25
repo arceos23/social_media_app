@@ -42,9 +42,6 @@ const signInWithGoogle = async () => {
   googleAuthProvider.addScope("profile");
   googleAuthProvider.addScope("email");
   const result = await signInWithPopup(auth, googleAuthProvider);
-  //   const user = result.user;
-  //   const credential = GoogleAuthProvider.credentialFromResult(result);
-  //   const token = credential!.accessToken;
 };
 
 export default SignUpPage;

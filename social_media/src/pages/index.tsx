@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Posts from "@/components/Posts";
 import { firestore } from "@/lib/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 interface Posts {
   posts: Array<object>;
@@ -22,7 +22,8 @@ const HomePage = ({ posts }: Posts) => {
 };
 
 export async function getServerSideProps() {
-  const querySnapshot = await getDocs(collection(firestore, "posts"));
+  const postsRef = collection(firestore, "posts");
+  const querySnapshot = await getDocs(query(postsRef, orderBy("timestamp", "desc")));
   let posts: any = [];
   querySnapshot.forEach((doc) => {
     let dataAndId = { ...doc.data(), ...{ docId: doc.id } };
