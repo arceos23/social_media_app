@@ -25,14 +25,7 @@ const MyPostsPage = () => {
     }
   }, [auth.currentUser?.uid]);
 
-  if (auth.currentUser?.uid === undefined)
-    return (
-      <Container sx={{ background: "gray" }}>
-        <Typography variant="body1" sx={{ p: 2 }}>
-          Sign in to view your posts
-        </Typography>
-      </Container>
-    );
+  if (auth.currentUser?.uid === undefined) return <AuthCheck></AuthCheck>;
   if (posts === null)
     return (
       <Container sx={{ background: "gray" }}>
