@@ -26,6 +26,7 @@ const PostPage = () => {
     };
     getPost();
   }, [router.isReady]);
+
   if (!post)
     return (
       <Container sx={{ background: "gray" }}>
@@ -35,6 +36,7 @@ const PostPage = () => {
       </Container>
     );
   const { docId } = router.query;
+  let postAndDocId = { ...post, ...{ docId: docId } };
   return (
     <Container>
       <Link href="/">
@@ -49,14 +51,15 @@ const PostPage = () => {
         title={""}
         src={""}
         body={""}
+        uid={""}
         numHearts={0}
         timestamp={{
           seconds: 0,
           nanoseconds: 0,
         }}
         comments={[]}
-        {...post}
-        // {...{ post }}
+        usersHearted={[]}
+        {...postAndDocId}
       ></Post>
       <Comments postComments={post.comments} docId={docId as unknown as string}></Comments>
       {auth.currentUser?.uid ? (
