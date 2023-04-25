@@ -53,6 +53,7 @@ const PostPage = () => {
         body={""}
         uid={""}
         numHearts={0}
+        link={false}
         timestamp={{
           seconds: 0,
           nanoseconds: 0,

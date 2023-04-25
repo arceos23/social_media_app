@@ -2,11 +2,9 @@
 
 High priority
 
-- Implement ability to heart posts and comments - once per signed in user - and disable button as appropriate
-- Update link in posts as its always set to true
-- Have comments button not be hoverable when looking at comments for an individual post - consider link in post component vs hover in comments count component
 - Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
 - Security rules for Firestore once deploying to Vercel
+- Implement ability to heart comments - once per signed in user - and disable button as appropriate
 
 Low priority
 

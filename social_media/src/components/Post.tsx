@@ -49,6 +49,7 @@ const Post: FC<PostProps> = ({
   usersHearted,
 }) => {
   const date = new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds)).toDate();
+  console.log(link);
   if (auth.currentUser?.uid === undefined) {
     return (
       <Card variant="outlined" sx={{ mb: 2 }}>
@@ -68,10 +69,10 @@ const Post: FC<PostProps> = ({
             <Heart {...{ docId, numHearts, alreadyHearted: false }}></Heart>
             {link ? (
               <Link href={`/${docId}`}>
-                <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+                <CommentsCount {...{ numComments: comments.length, hover: "pointer" }}></CommentsCount>
               </Link>
             ) : (
-              <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+              <CommentsCount {...{ numComments: comments.length, hover: "" }}></CommentsCount>
             )}
             {auth.currentUser?.uid === uid && <DeletePost {...{ docId }}></DeletePost>}
           </Box>
@@ -99,10 +100,10 @@ const Post: FC<PostProps> = ({
           <Heart {...{ docId, numHearts, alreadyHearted }}></Heart>
           {link ? (
             <Link href={`/${docId}`}>
-              <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+              <CommentsCount {...{ numComments: comments.length, hover: "pointer" }}></CommentsCount>
             </Link>
           ) : (
-            <CommentsCount {...{ numComments: comments.length }}></CommentsCount>
+            <CommentsCount {...{ numComments: comments.length, hover: "" }}></CommentsCount>
           )}
           {auth.currentUser?.uid === uid && <DeletePost {...{ docId }}></DeletePost>}
         </Box>

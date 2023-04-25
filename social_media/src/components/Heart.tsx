@@ -3,6 +3,8 @@ import { doc, arrayUnion, arrayRemove, increment, writeBatch } from "firebase/fi
 import { auth, firestore } from "@/lib/firebase";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Chip from "@mui/material/Chip";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
 
 type HeartProps = {
   docId: any;
@@ -13,10 +15,22 @@ type HeartProps = {
 const Heart: FC<HeartProps> = ({ docId, numHearts, alreadyHearted }) => {
   const [allowHeart, setAllowHeart] = useState<boolean>(alreadyHearted);
   const [heartsCount, setNumHearts] = useState<number>(numHearts);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     setAllowHeart(alreadyHearted);
   }, [alreadyHearted]);
+
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   const heartContent = async () => {
     const uid = auth.currentUser?.uid;
@@ -49,7 +63,23 @@ const Heart: FC<HeartProps> = ({ docId, numHearts, alreadyHearted }) => {
   };
 
   if (!auth.currentUser?.uid) {
-    return <Chip icon={<FavoriteIcon aria-label="favorites" />} label={heartsCount}></Chip>;
+    return (
+      <>
+        <Chip icon={<FavoriteIcon aria-label="favorites" />} label={heartsCount} onClick={handleClick}></Chip>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+        >
+          <Typography sx={{ p: 2 }}>Sign in to heart post.</Typography>
+        </Popover>
+      </>
+    );
   }
   return allowHeart ? (
     <Chip
