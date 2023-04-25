@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { doc, arrayUnion, arrayRemove, increment, writeBatch } from "firebase/firestore";
 import { auth, firestore } from "@/lib/firebase";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -13,6 +13,10 @@ type HeartProps = {
 const Heart: FC<HeartProps> = ({ docId, numHearts, alreadyHearted }) => {
   const [allowHeart, setAllowHeart] = useState<boolean>(alreadyHearted);
   const [heartsCount, setNumHearts] = useState<number>(numHearts);
+
+  useEffect(() => {
+    setAllowHeart(alreadyHearted);
+  }, [alreadyHearted]);
 
   const heartContent = async () => {
     const uid = auth.currentUser?.uid;
@@ -44,6 +48,9 @@ const Heart: FC<HeartProps> = ({ docId, numHearts, alreadyHearted }) => {
     setAllowHeart(false);
   };
 
+  if (!auth.currentUser?.uid) {
+    return <Chip icon={<FavoriteIcon aria-label="favorites" />} label={heartsCount}></Chip>;
+  }
   return allowHeart ? (
     <Chip
       icon={<FavoriteIcon color="error" aria-label="favorites" />}
