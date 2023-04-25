@@ -40,7 +40,7 @@ const PostPage = () => {
   return (
     <Container>
       <Link href="/">
-        <Typography component="button" variant="body1" color="text.white" sx={{ mt: 2, mb: 2 }}>
+        <Typography component="button" variant="body1" color="text.white" sx={{ mt: 2, mb: 2, cursor: "pointer" }}>
           Back to posts
         </Typography>
       </Link>
@@ -66,8 +66,8 @@ const PostPage = () => {
       {auth.currentUser?.uid ? (
         <AddComment {...{ doc: docRef }}></AddComment>
       ) : (
-        <Link href="/sign-up">
-          <Typography component="button" variant="body1" color="text.white" sx={{ mb: 2 }}>
+        <Link href="/sign-in">
+          <Typography component="button" variant="body1" color="text.white" sx={{ mb: 2, cursor: "pointer" }}>
             Sign in to comment
           </Typography>
         </Link>

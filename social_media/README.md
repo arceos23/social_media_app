@@ -2,15 +2,16 @@
 
 High priority
 
-- Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to just the person's name, so not sure if the concern is warranted in this auth scenario
+- Allow sign in with email and password
+- Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to be just the person's name, so not sure if the concern is warranted in this auth scenario
 - Security rules for Firestore once deploying to Vercel
 - Implement ability to heart comments - once per signed in user - and disable button as appropriate
 
 Low priority
 
-- Consider updating posts to return something besides react fragment component
+- Consider refactoring any pages to server side rendering (consider tradeoffs)
 - Add try catch where appropriate to handle errors - looking to get basic functionality implemented first
-- Consider ways to rerender page after CRUD operation rather than refreshing the page - could use optimistic UI or explore other techniques
+- Consider ways to rerender page after CRUD operation rather than refreshing the page (only occuring for some pages with next router refresh) - could use optimistic UI or explore other techniques
 - Review code and consider refactoring any repeated MUI component patterns into custom components
 - Clean up typescript types
 - See if less verbose solution to passing props from Comments component to Comment components

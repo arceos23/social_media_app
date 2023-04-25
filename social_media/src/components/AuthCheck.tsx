@@ -7,7 +7,7 @@ const AuthCheck = (props: any) => {
     props.children
   ) : (
     <Container sx={{ background: "gray" }}>
-      <Link href="sign-up">
+      <Link href="sign-in">
         <Typography variant="body1" sx={{ mt: 2, mb: 2, p: 2 }}>
           You must be signed in.
         </Typography>

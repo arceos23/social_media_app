@@ -39,7 +39,7 @@ const Nav = () => {
               </Button>
             </>
           ) : (
-            <Typography variant="h6" component="a" href="/sign-up">
+            <Typography variant="h6" component="a" href="/sign-in">
               Sign in
             </Typography>
           )}

@@ -49,39 +49,11 @@ const Post: FC<PostProps> = ({
   usersHearted,
 }) => {
   const date = new Timestamp(Number(timestamp.seconds), Number(timestamp.nanoseconds)).toDate();
-  console.log(link);
-  if (auth.currentUser?.uid === undefined) {
-    return (
-      <Card variant="outlined" sx={{ mb: 2 }}>
-        <CardHeader
-          avatar={<Avatar>{avatar}</Avatar>}
-          title={displayName}
-          subheader={title + " - " + date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
-        ></CardHeader>
-        {src && <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>}
-        <CardContent>
-          <Typography variant="body1" color="text.primary">
-            {body}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Box sx={{ display: "flex", gap: 0.5 }}>
-            <Heart {...{ docId, numHearts, alreadyHearted: false }}></Heart>
-            {link ? (
-              <Link href={`/${docId}`}>
-                <CommentsCount {...{ numComments: comments.length, hover: "pointer" }}></CommentsCount>
-              </Link>
-            ) : (
-              <CommentsCount {...{ numComments: comments.length, hover: "" }}></CommentsCount>
-            )}
-            {auth.currentUser?.uid === uid && <DeletePost {...{ docId }}></DeletePost>}
-          </Box>
-        </CardActions>
-      </Card>
-    );
+  let heartStatus = false; // User not signed in
+  if (auth.currentUser?.uid !== undefined) {
+    heartStatus = usersHearted.includes(auth.currentUser?.uid) ? true : false; // User signed in and check if hearted
   }
-  // content for signed in user
-  const alreadyHearted = usersHearted.includes(auth.currentUser?.uid) ? true : false;
+
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
@@ -97,7 +69,7 @@ const Post: FC<PostProps> = ({
       </CardContent>
       <CardActions>
         <Box sx={{ display: "flex", gap: 0.5 }}>
-          <Heart {...{ docId, numHearts, alreadyHearted }}></Heart>
+          <Heart {...{ docId, numHearts, alreadyHearted: heartStatus }}></Heart>
           {link ? (
             <Link href={`/${docId}`}>
               <CommentsCount {...{ numComments: comments.length, hover: "pointer" }}></CommentsCount>
