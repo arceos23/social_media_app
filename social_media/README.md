@@ -1,3 +1,9 @@
+## Selected functionality demo
+
+All users can view all posts, ordered by most recent post edit, in the home feed. However, the my posts and make post routes are protected unless a user logs in with a Google account. Once logged in, a user can then make posts and also heart and comment on other posts. Users are prevented from hearting a post more than once.
+
+![Image](/demo_images/Photo_Sharing_App.png)
+
 ## TODO
 
 High priority
