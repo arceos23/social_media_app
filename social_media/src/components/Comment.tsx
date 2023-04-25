@@ -32,7 +32,7 @@ const Comment: FC<CommentProps> = ({ displayName, uid, avatar, body, timestamp, 
       <CardHeader
         avatar={<Avatar>{avatar}</Avatar>}
         title={displayName}
-        subheader={date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
+        subheader={`${date.toLocaleDateString()} ${date.toLocaleTimeString("en-US")}`}
       ></CardHeader>
       <CardContent>
         <Typography variant="body1" color="text.secondary">

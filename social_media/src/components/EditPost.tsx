@@ -1,6 +1,6 @@
 import { FC, FormEvent, useState } from "react";
 import { useRouter } from "next/router";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import Chip from "@mui/material/Chip";
 import EditIcon from "@mui/icons-material/Edit";
 import { firestore } from "@/lib/firebase";
@@ -25,6 +25,7 @@ const EditPost: FC<EditPostProps> = ({ title, body, docId }) => {
     await updateDoc(postRef, {
       title: newTitle,
       body: newBody,
+      timestamp: serverTimestamp(),
     });
     router.reload();
   };

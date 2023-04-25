@@ -55,12 +55,18 @@ const Post: FC<PostProps> = ({
     heartStatus = usersHearted.includes(auth.currentUser?.uid) ? true : false; // User signed in and check if hearted
   }
 
+  let header = (
+    <>
+      <div>{displayName}</div>
+      <div>{title}</div>
+    </>
+  );
   return (
     <Card variant="outlined" sx={{ mb: 2 }}>
       <CardHeader
         avatar={<Avatar>{avatar}</Avatar>}
-        title={displayName}
-        subheader={title + " - " + date.toLocaleDateString() + " " + date.toLocaleTimeString("en-US")}
+        title={header}
+        subheader={`Last edited: ${date.toLocaleDateString()} ${date.toLocaleTimeString("en-US")}`}
       ></CardHeader>
       {src && <CardMedia component="img" height="194" sx={{ objectFit: "contain" }} src={src} alt={body}></CardMedia>}
       <CardContent>
