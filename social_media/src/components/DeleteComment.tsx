@@ -6,7 +6,7 @@ import { doc, updateDoc, arrayRemove } from "firebase/firestore";
 import { firestore } from "@/lib/firebase";
 
 type DeleteCommentProps = {
-  comment: object;
+  comment: string;
   docId: string;
 };
 

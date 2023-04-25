@@ -50,12 +50,12 @@ const CreatePostPage = () => {
             onChange={(e) => setTitle(e.target.value)}
           ></TextField>
           <TextField
-            autoComplete="comment"
-            name="comment"
+            autoComplete="body"
+            name="body"
             required
             fullWidth
-            id="comment"
-            label="Comment"
+            id="body"
+            label="Body"
             autoFocus
             sx={{ background: "white", mb: 2 }}
             onChange={(e) => setBody(e.target.value)}

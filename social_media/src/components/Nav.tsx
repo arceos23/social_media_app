@@ -26,7 +26,7 @@ const Nav = () => {
           </Typography>
           {username ? (
             <>
-              <Typography variant="h6" sx={{ mr: 2, alignContent: "right" }}>
+              <Typography variant="h6" sx={{ mr: 2, alignContent: "right", color: "black" }}>
                 {username}
               </Typography>
               <Button

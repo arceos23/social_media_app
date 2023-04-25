@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Heart from "@/components/Heart";
 import CommentsCount from "@/components/CommentsCount";
 import DeletePost from "@/components/DeletePost";
+import EditPost from "@/components/EditPost";
 import { Timestamp } from "firebase/firestore";
 import { auth } from "@/lib/firebase";
 
@@ -78,6 +79,7 @@ const Post: FC<PostProps> = ({
             <CommentsCount {...{ numComments: comments.length, hover: "" }}></CommentsCount>
           )}
           {auth.currentUser?.uid === uid && <DeletePost {...{ docId }}></DeletePost>}
+          {auth.currentUser?.uid === uid && <EditPost {...{ title, body, docId }}></EditPost>}
         </Box>
       </CardActions>
     </Card>
