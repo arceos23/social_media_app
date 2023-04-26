@@ -10,6 +10,7 @@ High priority
 
 - Allow user to upload image for a post
 - Allow sign in with email and password
+- Make nav bar responsive
 - Check XSS concerns with using display name in UI in conjunction with Google authentication. Seems to be just the person's name, so not sure if the concern is warranted in this auth scenario
 - Security rules for Firestore once deploying to Vercel
 - Implement ability to heart comments - once per signed in user - and disable button as appropriate
